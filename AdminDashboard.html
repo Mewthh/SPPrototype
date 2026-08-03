@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>SPP Admin Dashboard</title>
+	<link rel="stylesheet" href="admin/styles.css" />
+	<script src="admin/app.js" defer></script>
+</head>
+<body>
+	<div class="dashboard-shell">
+		<header class="dashboard-topbar">
+			<div class="brand-block">
+				<div class="brand-mark">SPP</div>
+				<div>
+					<p class="eyebrow">Admin Control Center</p>
+					<h1>Samahang Pisika ng Pilipinas</h1>
+				</div>
+			</div>
+
+			<div class="topbar-actions">
+				<a class="ghost-button" href="index.html" aria-label="Go to Home">
+					<span aria-hidden="true">⌂</span>
+					<span>Home</span>
+				</a>
+				<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
+					<span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+					<span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+				</button>
+			</div>
+		</header>
+
+		<main class="sections-board">
+			<section class="section-panel section-panel-news" data-section-panel="News">
+				<div class="section-panel-head">
+					<div>
+						<p class="panel-kicker">News</p>
+						<h2>Announcements</h2>
+					</div>
+					<span class="status-pill">Public section</span>
+				</div>
+				<div class="section-panel-body">
+					<form class="section-form" data-section-form="News">
+						<input type="hidden" name="section" value="News" />
+						<label class="field-row">
+							<span>Title</span>
+							<input type="text" name="title" placeholder="News title" required />
+						</label>
+						<label class="field-row">
+							<span>Summary</span>
+							<input type="text" name="summary" placeholder="Short sample summary" />
+						</label>
+						<label class="field-row field-row-wide">
+							<span>Body</span>
+							<textarea name="body" rows="3" placeholder="sample"></textarea>
+						</label>
+					</form>
+					<div class="section-summary">
+						<strong data-metric="announcement-count">0</strong>
+						<span>Announcements ready for the homepage</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="section-panel section-panel-activities" data-section-panel="Activities">
+				<div class="section-panel-head">
+					<div>
+						<p class="panel-kicker">Activities</p>
+						<h2>Events</h2>
+					</div>
+					<span class="status-pill">Public section</span>
+				</div>
+				<div class="section-panel-body">
+					<form class="section-form" data-section-form="Activities">
+						<input type="hidden" name="section" value="Activities" />
+						<label class="field-row">
+							<span>Title</span>
+							<input type="text" name="title" placeholder="Event title" required />
+						</label>
+						<label class="field-row">
+							<span>Date</span>
+							<input type="date" name="publishDate" />
+						</label>
+						<label class="field-row field-row-wide">
+							<span>Body</span>
+							<textarea name="body" rows="3" placeholder="sample"></textarea>
+						</label>
+					</form>
+					<div class="section-summary">
+						<strong data-metric="event-count">0</strong>
+						<span>Events ready for the homepage</span>
+					</div>
+				</div>
+			</section>
+
+			<section class="section-panel section-panel-resources" data-section-panel="Resources">
+				<div class="section-panel-head">
+					<div>
+						<p class="panel-kicker">Resources</p>
+						<h2>Reference content</h2>
+					</div>
+					<span class="status-pill">Public section</span>
+				</div>
+				<div class="section-panel-body">
+					<form class="section-form" data-section-form="Resources">
+						<input type="hidden" name="section" value="Resources" />
+						<label class="field-row">
+							<span>Title</span>
+							<input type="text" name="title" placeholder="Resource title" required />
+						</label>
+						<label class="field-row">
+							<span>Link</span>
+							<input type="url" name="link" placeholder="sample" />
+						</label>
+						<label class="field-row field-row-wide">
+							<span>Body</span>
+							<textarea name="body" rows="3" placeholder="sample"></textarea>
+						</label>
+					</form>
+				</div>
+			</section>
+
+			<section class="section-panel section-panel-downloads" data-section-panel="Downloads">
+				<div class="section-panel-head">
+					<div>
+						<p class="panel-kicker">Downloads</p>
+						<h2>Files and forms</h2>
+					</div>
+					<span class="status-pill">Public section</span>
+				</div>
+				<div class="section-panel-body">
+					<form class="section-form" data-section-form="Downloads">
+						<input type="hidden" name="section" value="Downloads" />
+						<label class="field-row">
+							<span>Title</span>
+							<input type="text" name="title" placeholder="Download title" required />
+						</label>
+						<label class="field-row">
+							<span>File</span>
+							<input type="text" name="file" placeholder="sample" />
+						</label>
+						<label class="field-row field-row-wide">
+							<span>Body</span>
+							<textarea name="body" rows="3" placeholder="sample"></textarea>
+						</label>
+					</form>
+				</div>
+			</section>
+
+			<section class="section-panel section-panel-about" data-section-panel="About SPP">
+				<div class="section-panel-head">
+					<div>
+						<p class="panel-kicker">About SPP</p>
+						<h2>Society information</h2>
+					</div>
+					<span class="status-pill">Public section</span>
+				</div>
+				<div class="section-panel-body">
+					<form class="section-form" data-section-form="About SPP">
+						<input type="hidden" name="section" value="About SPP" />
+						<label class="field-row">
+							<span>Title</span>
+							<input type="text" name="title" placeholder="About page title" required />
+						</label>
+						<label class="field-row field-row-wide">
+							<span>Body</span>
+							<textarea name="body" rows="3" placeholder="sample"></textarea>
+						</label>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<section class="panel summary-strip">
+			<div class="summary-item">
+				<span>Scheduled</span>
+				<strong data-metric="scheduled-count">0</strong>
+			</div>
+			<div class="summary-item">
+				<span>Published</span>
+				<strong data-metric="published-count">0</strong>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
