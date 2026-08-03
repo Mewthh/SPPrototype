@@ -4,8 +4,8 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>SPP Admin Dashboard</title>
-	<link rel="stylesheet" href="admin/styles.css" />
-	<script src="admin/app.js" defer></script>
+	<link rel="stylesheet" href="admin/styles.css?v=20260803" />
+	<script src="admin/app.js?v=20260803" defer></script>
 </head>
 <body>
 	<div class="dashboard-shell">
@@ -37,7 +37,6 @@
 						<p class="panel-kicker">News</p>
 						<h2>Announcements</h2>
 					</div>
-					<span class="status-pill">Public section</span>
 				</div>
 				<div class="section-panel-body">
 					<form class="section-form" data-section-form="News">
@@ -55,10 +54,6 @@
 							<textarea name="body" rows="3" placeholder="sample"></textarea>
 						</label>
 					</form>
-					<div class="section-summary">
-						<strong data-metric="announcement-count">0</strong>
-						<span>Announcements ready for the homepage</span>
-					</div>
 				</div>
 			</section>
 
@@ -68,7 +63,6 @@
 						<p class="panel-kicker">Activities</p>
 						<h2>Events</h2>
 					</div>
-					<span class="status-pill">Public section</span>
 				</div>
 				<div class="section-panel-body">
 					<form class="section-form" data-section-form="Activities">
@@ -86,10 +80,6 @@
 							<textarea name="body" rows="3" placeholder="sample"></textarea>
 						</label>
 					</form>
-					<div class="section-summary">
-						<strong data-metric="event-count">0</strong>
-						<span>Events ready for the homepage</span>
-					</div>
 				</div>
 			</section>
 
@@ -99,7 +89,6 @@
 						<p class="panel-kicker">Resources</p>
 						<h2>Reference content</h2>
 					</div>
-					<span class="status-pill">Public section</span>
 				</div>
 				<div class="section-panel-body">
 					<form class="section-form" data-section-form="Resources">
@@ -126,7 +115,6 @@
 						<p class="panel-kicker">Downloads</p>
 						<h2>Files and forms</h2>
 					</div>
-					<span class="status-pill">Public section</span>
 				</div>
 				<div class="section-panel-body">
 					<form class="section-form" data-section-form="Downloads">
@@ -153,7 +141,6 @@
 						<p class="panel-kicker">About SPP</p>
 						<h2>Society information</h2>
 					</div>
-					<span class="status-pill">Public section</span>
 				</div>
 				<div class="section-panel-body">
 					<form class="section-form" data-section-form="About SPP">
@@ -182,5 +169,13 @@
 			</div>
 		</section>
 	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const scheduled = document.querySelector('[data-metric="scheduled-count"]');
+			const published = document.querySelector('[data-metric="published-count"]');
+			if (scheduled) scheduled.textContent = '0';
+			if (published) published.textContent = '0';
+		});
+	</script>
 </body>
 </html>
