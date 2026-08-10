@@ -155,7 +155,22 @@ function renderSectionTabs() {
 function renderMetrics() {
   const counts = state.posts.reduce(
     (accumulator, post) => {
-      accumulator[post.type] += 1;
+      if (post.type === 'announcement') {
+        accumulator.announcement += 1;
+      }
+
+      if (post.type === 'event') {
+        accumulator.event += 1;
+      }
+
+      if (post.status === 'scheduled') {
+        accumulator.scheduled += 1;
+      }
+
+      if (post.status === 'published') {
+        accumulator.published += 1;
+      }
+
       return accumulator;
     },
     { announcement: 0, event: 0, scheduled: 0, published: 0 },
@@ -163,8 +178,8 @@ function renderMetrics() {
 
   if (metrics.announcement) metrics.announcement.textContent = String(counts.announcement);
   if (metrics.event) metrics.event.textContent = String(counts.event);
-  if (metrics.scheduled) metrics.scheduled.textContent = '0';
-  if (metrics.published) metrics.published.textContent = '0';
+  if (metrics.scheduled) metrics.scheduled.textContent = String(counts.scheduled);
+  if (metrics.published) metrics.published.textContent = String(counts.published);
 }
 
 function renderQueue() {

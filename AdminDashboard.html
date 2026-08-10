@@ -19,9 +19,9 @@
 			</div>
 
 			<div class="topbar-actions">
-				<a class="ghost-button" href="index.html" aria-label="Go to Home">
+				<a class="ghost-button" href="index.html" aria-label="Go to user side">
 					<span aria-hidden="true">⌂</span>
-					<span>Home</span>
+					<span>Go to User Side</span>
 				</a>
 				<button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
 					<span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
@@ -169,13 +169,5 @@
 			</div>
 		</section>
 	</div>
-	<script>
-		document.addEventListener('DOMContentLoaded', () => {
-			const scheduled = document.querySelector('[data-metric="scheduled-count"]');
-			const published = document.querySelector('[data-metric="published-count"]');
-			if (scheduled) scheduled.textContent = '0';
-			if (published) published.textContent = '0';
-		});
-	</script>
 </body>
 </html>
