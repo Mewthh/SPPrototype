@@ -425,3 +425,23 @@ composeForm?.addEventListener('reset', () => {
 });
 
 queueList?.addEventListener('click', handleQueueAction);
+
+// Mobile Sidebar Menu Toggling
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const menuClose = document.querySelector('[data-menu-close]');
+const sidebar = document.querySelector('[data-sidebar]');
+const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+
+menuToggle?.addEventListener('click', () => {
+  sidebar?.classList.add('is-open');
+});
+
+menuClose?.addEventListener('click', () => {
+  sidebar?.classList.remove('is-open');
+});
+
+navLinks.forEach((link) => {
+  link.addEventListener('click', () => {
+    sidebar?.classList.remove('is-open');
+  });
+});
