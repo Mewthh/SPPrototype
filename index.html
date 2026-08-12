@@ -3,140 +3,386 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SPP Dashboard Prototype</title>
+  <title>Samahang Pisika ng Pilipinas</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="app.js" defer></script>
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <div class="brand">
-        <div class="brand-mark">SPP</div>
-        <div class="brand-copy">
-          <h1>Samahang Pisika ng Pilipinas</h1>
-          <p>Physics Society of the Philippines</p>
-        </div>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Samahang Pisika ng Pilipinas home">
+        <span class="brand-mark" aria-hidden="true">SPP</span>
+        <span class="brand-copy">
+          <strong>Samahang Pisika ng Pilipinas</strong>
+          <span>sample text</span>
+        </span>
+      </a>
+
+      <div class="header-nav-group">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#news">News</a>
+          <a href="#activities">Activities</a>
+          <a href="#resources">Resources</a>
+          <a href="#downloads">Downloads</a>
+          <a href="#about">About SPP</a>
+          <details class="year-menu">
+            <summary aria-label="Open conference year choices">⋯</summary>
+            <div class="year-menu-panel" aria-label="Conference year choices">
+              <button type="button" data-year="2024">SPP2024</button>
+              <button type="button" data-year="2025">SPP2025</button>
+              <button type="button" data-year="2026">SPP2026</button>
+            </div>
+          </details>
+        </nav>
       </div>
 
-      <div class="topbar-actions">
-        <div class="year-switcher" aria-label="Conference year choices">
-          <button type="button" data-year="2024">SPP2024</button>
-          <button type="button" data-year="2025">SPP2025</button>
-          <button type="button" data-year="2026">SPP2026</button>
-        </div>
+      <div class="header-tools">
+        <form class="search-box" role="search">
+          <input type="search" aria-label="Search the dashboard" placeholder="Search" />
+          <button type="submit">Search</button>
+        </form>
 
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode">
-          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
-          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
-        </button>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="nav-row">
-          <nav class="nav-tabs" aria-label="Primary navigation">
-            <a href="#facebook">Facebook Posts</a>
+        <details class="mobile-nav">
+          <summary class="mobile-nav-toggle" aria-label="Open menu">
+            <span class="hamburger" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="mobile-nav-label">Menu</span>
+          </summary>
+          <nav class="mobile-nav-panel" aria-label="Mobile navigation">
             <a href="#news">News</a>
             <a href="#activities">Activities</a>
             <a href="#resources">Resources</a>
             <a href="#downloads">Downloads</a>
             <a href="#about">About SPP</a>
+            <div class="mobile-nav-years" aria-label="Conference year choices">
+              <button type="button" data-year="2024">SPP2024</button>
+              <button type="button" data-year="2025">SPP2025</button>
+              <button type="button" data-year="2026">SPP2026</button>
+            </div>
           </nav>
+        </details>
+      </div>
+    </div>
+  </header>
 
-          <form class="search-box" role="search">
-            <input type="search" aria-label="Search the dashboard" placeholder="Search" />
-            <button type="submit">Search</button>
-          </form>
-        </div>
+  <main id="main-content">
+    <section class="hero section-shell" id="top">
+      <div class="hero-grid shell">
+        <div class="hero-copy">
+          <p class="eyebrow">SAMAHANG PISIKA NG PILIPINAS</p>
+          <h1>title</h1>
+          <p class="hero-text">sample text.</p>
 
-        <div class="hero-grid">
-          <div class="headline">
-            <h2>sample title</h2>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#events">View Events</a>
+            <a class="button button-secondary" href="#about">Join SPP</a>
+          </div>
+
+          <div class="hero-meta" aria-label="Quick highlights">
+            <article>
+              <strong>sample text</strong>
+              <span>sample text</span>
+            </article>
+            <article>
+              <strong>sample text</strong>
+              <span>sample text</span>
+            </article>
+            <article>
+              <strong>sample text</strong>
+              <span>sample text</span>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <main>
-      <section class="section section-anchor facebook-section" id="facebook">
-        <div class="section-header">
-          <div>
-            <h3>Facebook Posts</h3>
-          </div>
+    <section class="section shell" id="activities">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">Activities</p>
+          <h2>title</h2>
+          <p>sample text.</p>
         </div>
+      </div>
 
-        <div class="facebook-feed">
-          <article class="facebook-post">
-            <span class="post-label">Preview</span>
-            <strong>sample text</strong>
+      <div class="card-grid activity-grid">
+        <article class="content-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Activities</span>
+            <h3>title</h3>
             <p>sample text.</p>
             <small>sample text</small>
-          </article>
+          </div>
+        </article>
 
-          <article class="facebook-post">
-            <span class="post-label">Preview</span>
-            <strong>sample text</strong>
+        <article class="content-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Activities</span>
+            <h3>title</h3>
             <p>sample text.</p>
             <small>sample text</small>
-          </article>
+          </div>
+        </article>
 
-          <article class="facebook-post">
-            <span class="post-label">Preview</span>
-            <strong>sample text</strong>
+        <article class="content-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Activities</span>
+            <h3>title</h3>
             <p>sample text.</p>
             <small>sample text</small>
+          </div>
+        </article>
+
+        <article class="content-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Activities</span>
+            <h3>title</h3>
+            <p>sample text.</p>
+            <small>sample text</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="events">
+      <div class="section-header section-header-actions">
+        <div>
+          <p class="eyebrow">Events</p>
+          <h2>title</h2>
+          <p>sample text.</p>
+        </div>
+        <a class="button button-secondary" href="#events">View All Events</a>
+      </div>
+
+      <div class="events-grid">
+        <article class="event-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Event</span>
+            <h3>title</h3>
+            <dl class="event-details">
+              <div><dt>Date</dt><dd>sample text</dd></div>
+              <div><dt>Location</dt><dd>sample text</dd></div>
+            </dl>
+            <p>sample text.</p>
+            <a class="text-button" href="#events">View Event</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Event</span>
+            <h3>title</h3>
+            <dl class="event-details">
+              <div><dt>Date</dt><dd>sample text</dd></div>
+              <div><dt>Location</dt><dd>sample text</dd></div>
+            </dl>
+            <p>sample text.</p>
+            <a class="text-button" href="#events">View Event</a>
+          </div>
+        </article>
+
+        <article class="event-card">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='40'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">Event</span>
+            <h3>title</h3>
+            <dl class="event-details">
+              <div><dt>Date</dt><dd>sample text</dd></div>
+              <div><dt>Location</dt><dd>sample text</dd></div>
+            </dl>
+            <p>sample text.</p>
+            <a class="text-button" href="#events">View Event</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="news">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">News and Announcements</p>
+          <h2>title</h2>
+          <p>sample text.</p>
+        </div>
+      </div>
+
+      <div class="news-layout">
+        <article class="featured-news">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 700'><rect width='1200' height='700' rx='36' fill='%23e5e7eb'/><rect x='52' y='52' width='1096' height='596' rx='28' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='48'>sample text</text></svg>" alt="sample text" />
+          <div class="card-body">
+            <span class="card-chip">News</span>
+            <p class="card-meta-line">sample text</p>
+            <h3>title</h3>
+            <p>sample text.</p>
+            <a class="text-button" href="#news">Read More</a>
+          </div>
+        </article>
+
+        <div class="news-stack">
+          <article class="news-card">
+            <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='36'>sample text</text></svg>" alt="sample text" />
+            <div class="card-body">
+              <span class="card-chip">Announcement</span>
+              <p class="card-meta-line">sample text</p>
+              <h3>title</h3>
+              <p>sample text.</p>
+              <a class="text-button" href="#news">Read More</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='36'>sample text</text></svg>" alt="sample text" />
+            <div class="card-body">
+              <span class="card-chip">News</span>
+              <p class="card-meta-line">sample text</p>
+              <h3>title</h3>
+              <p>sample text.</p>
+              <a class="text-button" href="#news">Read More</a>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 520'><rect width='800' height='520' rx='28' fill='%23e5e7eb'/><rect x='40' y='40' width='720' height='440' rx='22' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='36'>sample text</text></svg>" alt="sample text" />
+            <div class="card-body">
+              <span class="card-chip">News</span>
+              <p class="card-meta-line">sample text</p>
+              <h3>title</h3>
+              <p>sample text.</p>
+              <a class="text-button" href="#news">Read More</a>
+            </div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section section-anchor" id="news">
-        <div class="section-header">
-          <div>
-            <h3>News</h3>
-            <p>test sample text.</p>
+    <section class="section shell year-section" id="years">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">SPP 2024-2026 Events</p>
+          <h2>title</h2>
+          <p>sample text.</p>
+        </div>
+      </div>
+
+      <div class="year-layout">
+        <article class="spotlight" data-empty="true">
+          <div class="spotlight-inner">
+            <p class="spotlight-label">Selected Year</p>
+            <h3 data-year-title>title</h3>
+            <p data-year-copy>sample text.</p>
+
+            <div class="spotlight-badges" data-year-badges>
+              <div class="spot-badge">
+                <div>
+                  <strong>sample text</strong>
+                  <span>sample text</span>
+                </div>
+                <span>sample text</span>
+              </div>
+              <div class="spot-badge">
+                <div>
+                  <strong>sample text</strong>
+                  <span>sample text</span>
+                </div>
+                <span>sample text</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div class="year-stack">
+          <article class="mini-panel">
+            <p class="card-chip">2024</p>
+            <h3>title</h3>
+            <p>sample text.</p>
+          </article>
+          <article class="mini-panel">
+            <p class="card-chip">2025</p>
+            <h3>title</h3>
+            <p>sample text.</p>
+          </article>
+          <article class="mini-panel">
+            <p class="card-chip">2026</p>
+            <h3>title</h3>
+            <p>sample text.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell about-section" id="about">
+      <div class="section-header">
+        <div>
+          <p class="eyebrow">About</p>
+          <h2>title</h2>
+          <p>sample text.</p>
+        </div>
+      </div>
+
+      <div class="about-layout">
+        <div class="about-copy">
+          <p>sample text.</p>
+          <p>sample text.</p>
+          <div class="about-actions">
+            <a class="button button-primary" href="#about">Membership</a>
+            <a class="button button-secondary" href="#news">Latest News</a>
           </div>
         </div>
-      </section>
 
-      <section class="section section-anchor" id="activities">
-        <div class="section-header">
-          <div>
-            <h3>Activities</h3>
-            <p>test sample text.</p>
-          </div>
+        <figure class="about-visual">
+          <img src="data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 640'><rect width='900' height='640' rx='32' fill='%23e5e7eb'/><rect x='48' y='48' width='804' height='544' rx='24' fill='%23f8fafc' stroke='%23cbd5e1'/><text x='50%25' y='47%25' text-anchor='middle' dominant-baseline='middle' fill='%236b7280' font-family='Segoe UI,Arial,sans-serif' font-size='42'>sample text</text><text x='50%25' y='55%25' text-anchor='middle' dominant-baseline='middle' fill='%239ca3af' font-family='Segoe UI,Arial,sans-serif' font-size='22'>sample text</text></svg>" alt="sample text" />
+          <figcaption>sample text</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand">
+        <div class="brand-mark" aria-hidden="true">SPP</div>
+        <p>Samahang Pisika ng Pilipinas</p>
+        <p>sample text.</p>
+      </div>
+
+      <div>
+        <h3>SPP</h3>
+        <a href="#about">About</a>
+        <a href="#activities">Activities</a>
+        <a href="#events">Events</a>
+        <a href="#news">News</a>
+      </div>
+
+      <div>
+        <h3>Membership</h3>
+        <a href="#years">SPP 2024-2026 Events</a>
+        <a href="#top">Top of page</a>
+      </div>
+
+      <div>
+        <h3>Social Media</h3>
+        <div class="social-links" aria-label="Social media links">
+          <a href="#top" aria-label="Facebook">f</a>
+          <a href="#top" aria-label="Instagram">ig</a>
+          <a href="#top" aria-label="LinkedIn">in</a>
+          <a href="#top" aria-label="X">x</a>
         </div>
-      </section>
-
-      <section class="section section-anchor" id="resources">
-        <div class="section-header">
-          <div>
-            <h3>Resources</h3>
-            <p>test sample text.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-anchor" id="downloads">
-        <div class="section-header">
-          <div>
-            <h3>Downloads</h3>
-            <p>test sample text.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-anchor" id="about">
-        <div class="section-header">
-          <div>
-            <h3>About SPP</h3>
-            <p>test sample text.</p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <div class="footer">sample footer</div>
-  </div>
+        <p>sample text.</p>
+        <p class="copyright">© 2026 Samahang Pisika ng Pilipinas</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
