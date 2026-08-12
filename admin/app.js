@@ -197,24 +197,21 @@ function renderQueue() {
   queueList.innerHTML = filteredPosts
     .map(
       (post) => `
-        <article class="queue-item" data-post-id="${post.id}">
-          <div class="queue-item-head">
-            <div>
-              <span class="post-tag" data-status="${post.status}">${statusLabel(post.status)}</span>
-              <h3>${post.title}</h3>
-            </div>
-            <span class="post-tag">${post.section}</span>
+        <article class="queue-row" data-post-id="${post.id}">
+          <div class="queue-cell queue-title">
+            <strong>${post.title}</strong>
+            <span>${post.summary || post.body || 'No summary added yet.'}</span>
+            <em>${post.section}</em>
           </div>
-          <p>${post.summary || post.body || 'No summary added yet.'}</p>
-          <div class="queue-item-meta">
-            <span>${post.type === 'event' ? 'Event' : 'Announcement'}</span>
-            <span>${formatDate(post.publishDate)}</span>
-            <span>${post.featured ? 'Featured on homepage' : 'Not featured'}</span>
+          <div class="queue-cell queue-type">${post.type === 'event' ? 'Activity' : 'News'}</div>
+          <div class="queue-cell queue-status">
+            <span class="post-tag" data-status="${post.status}">${statusLabel(post.status)}</span>
           </div>
-          <div class="queue-item-actions">
-            ${post.status !== 'published' ? '<button type="button" class="item-action primary" data-action="publish">Publish now</button>' : ''}
-            ${post.status !== 'scheduled' ? '<button type="button" class="item-action" data-action="schedule">Mark scheduled</button>' : ''}
-            <button type="button" class="item-action" data-action="delete">Delete</button>
+          <div class="queue-cell queue-date">${formatDate(post.publishDate)}</div>
+          <div class="queue-cell queue-actions">
+            ${post.status !== 'published' ? '<button type="button" class="item-action primary" data-action="publish">Publish</button>' : ''}
+            ${post.status !== 'scheduled' ? '<button type="button" class="item-action" data-action="schedule">Schedule</button>' : ''}
+            <button type="button" class="item-action danger" data-action="delete">Delete</button>
           </div>
         </article>
       `,
@@ -249,11 +246,12 @@ function renderPreview() {
       .map(
         (post) => `
           <article class="preview-item">
-            <div class="queue-item-head">
-              <div>
-                <span class="post-tag" data-status="${post.status}">${statusLabel(post.status)}</span>
-                <strong>${post.title}</strong>
-              </div>
+            <div class="preview-item-head">
+              <strong>${post.title}</strong>
+              <span class="post-tag" data-status="${post.status}">${statusLabel(post.status)}</span>
+            </div>
+            <div class="preview-item-meta">
+              <span>${post.section}</span>
               <span>${formatDate(post.publishDate)}</span>
             </div>
             <p>${post.summary}</p>
@@ -310,6 +308,8 @@ function handleSubmit(event) {
     return;
   }
 
+  const submitStatus = event.submitter?.dataset.status;
+
   const data = new FormData(composeForm);
   const post = {
     id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `post-${Date.now()}`,
@@ -317,7 +317,7 @@ function handleSubmit(event) {
     title: String(data.get('title') || '').trim(),
     section: String(data.get('section') || 'News'),
     publishDate: String(data.get('publishDate') || ''),
-    status: String(data.get('status') || 'draft'),
+    status: submitStatus || String(data.get('status') || 'draft'),
     summary: String(data.get('summary') || '').trim(),
     body: String(data.get('body') || '').trim(),
     featured: data.get('featureOnHomepage') === 'on',

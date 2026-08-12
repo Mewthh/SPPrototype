@@ -8,15 +8,25 @@
 	<script src="admin/app.js?v=20260803" defer></script>
 </head>
 <body>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+
 	<div class="dashboard-shell">
 		<header class="dashboard-topbar">
 			<div class="brand-block">
-				<div class="brand-mark">SPP</div>
-				<div>
-					<p class="eyebrow">Admin Control Center</p>
+				<div class="brand-mark" aria-hidden="true">SPP</div>
+				<div class="brand-copy">
+					<p class="eyebrow">Admin CMS</p>
 					<h1>Samahang Pisika ng Pilipinas</h1>
+					<p>Editorial content management for news, activities, resources, downloads, and institutional pages.</p>
 				</div>
 			</div>
+
+			<nav class="dashboard-nav" aria-label="Dashboard sections">
+				<a href="#dashboard">Dashboard</a>
+				<a href="#compose">Content</a>
+				<a href="#preview">Preview</a>
+				<a href="#sections">Sections</a>
+			</nav>
 
 			<div class="topbar-actions">
 				<a class="ghost-button" href="index.html" aria-label="Go to user side">
@@ -30,144 +40,196 @@
 			</div>
 		</header>
 
-		<main class="sections-board">
-			<section class="section-panel section-panel-news" data-section-panel="News">
-				<div class="section-panel-head">
-					<div>
-						<p class="panel-kicker">News</p>
-						<h2>Announcements</h2>
+		<main id="main-content" class="dashboard-main">
+			<section class="panel summary-strip dashboard-overview" id="dashboard">
+				<div class="overview-copy">
+					<p class="panel-kicker">Dashboard</p>
+					<h2>Content control center</h2>
+					<p>Manage the SPP website with compact editorial tools, clear status tracking, and quick access to the content queue.</p>
+					<div class="overview-actions">
+						<button type="button" class="button button-primary" data-fill-template="announcement">Create News</button>
+						<button type="button" class="button button-secondary" data-fill-template="event">Create Activity</button>
+						<button type="button" class="button button-secondary" data-scroll-target="preview">Review Preview</button>
 					</div>
 				</div>
-				<div class="section-panel-body">
-					<form class="section-form" data-section-form="News">
-						<input type="hidden" name="section" value="News" />
-						<label class="field-row">
-							<span>Title</span>
-							<input type="text" name="title" placeholder="News title" required />
-						</label>
-						<label class="field-row">
-							<span>Summary</span>
-							<input type="text" name="summary" placeholder="Short sample summary" />
-						</label>
-						<label class="field-row field-row-wide">
-							<span>Body</span>
-							<textarea name="body" rows="3" placeholder="sample"></textarea>
-						</label>
-					</form>
+
+				<div class="metric-grid" aria-label="Content metrics">
+					<article class="metric-card">
+						<span>News items</span>
+						<strong data-metric="announcement-count">0</strong>
+					</article>
+					<article class="metric-card">
+						<span>Activities</span>
+						<strong data-metric="event-count">0</strong>
+					</article>
+					<article class="metric-card">
+						<span>Scheduled</span>
+						<strong data-metric="scheduled-count">0</strong>
+					</article>
+					<article class="metric-card">
+						<span>Published</span>
+						<strong data-metric="published-count">0</strong>
+					</article>
 				</div>
 			</section>
 
-			<section class="section-panel section-panel-activities" data-section-panel="Activities">
+			<section class="panel workspace-panel" id="compose">
 				<div class="section-panel-head">
 					<div>
-						<p class="panel-kicker">Activities</p>
-						<h2>Events</h2>
+						<p class="panel-kicker">Content workspace</p>
+						<h2>Create, edit, and publish</h2>
+						<p>Use the editor to prepare content for the queue, then publish or schedule it from one place.</p>
 					</div>
 				</div>
-				<div class="section-panel-body">
-					<form class="section-form" data-section-form="Activities">
-						<input type="hidden" name="section" value="Activities" />
-						<label class="field-row">
+
+				<div class="workspace-grid">
+					<div class="compose-column">
+						<form class="compose-form" data-compose-form>
+							<div class="control-strip" aria-label="Post type selector">
+								<button type="button" class="control-tab" data-post-type="announcement" aria-selected="true">News</button>
+								<button type="button" class="control-tab" data-post-type="event" aria-selected="false">Activities</button>
+							</div>
+
+							<div class="section-pills" aria-label="Content categories">
+								<button type="button" class="control-tab" data-section="News" aria-selected="true">News</button>
+								<button type="button" class="control-tab" data-section="Activities" aria-selected="false">Activities</button>
+								<button type="button" class="control-tab" data-section="Resources" aria-selected="false">Resources</button>
+								<button type="button" class="control-tab" data-section="Downloads" aria-selected="false">Downloads</button>
+								<button type="button" class="control-tab" data-section="About SPP" aria-selected="false">About SPP</button>
+							</div>
+
+							<input type="hidden" name="section" value="News" />
+							<input type="hidden" name="status" value="draft" />
+
+							<label class="field-row">
+								<span>Title</span>
+								<input type="text" name="title" placeholder="Enter a working title" required />
+							</label>
+
+							<label class="field-row">
+								<span>Summary</span>
+								<input type="text" name="summary" placeholder="Short summary for list views" />
+							</label>
+
+							<label class="field-row">
+								<span>Publish date</span>
+								<input type="date" name="publishDate" />
+							</label>
+
+							<label class="field-row field-row-wide">
+								<span>Body</span>
+								<textarea name="body" rows="6" placeholder="Write the main content here."></textarea>
+							</label>
+
+							<label class="field-row field-row-inline">
+								<span>Featured on homepage</span>
+								<input type="checkbox" name="featureOnHomepage" />
+							</label>
+
+							<div class="form-actions">
+								<button type="submit" class="button button-secondary" data-status="draft">Save Draft</button>
+								<button type="submit" class="button button-primary" data-status="published">Publish</button>
+								<button type="reset" class="button button-quiet">Reset</button>
+							</div>
+						</form>
+					</div>
+
+					<aside class="queue-column" id="queue">
+						<div class="section-panel-head queue-head">
+							<div>
+								<p class="panel-kicker">Content queue</p>
+								<h2>Current items</h2>
+							</div>
+							<div class="queue-filters" aria-label="Queue filters">
+								<button type="button" class="filter-tab active" data-filter="all">All</button>
+								<button type="button" class="filter-tab" data-filter="announcement">News</button>
+								<button type="button" class="filter-tab" data-filter="event">Activities</button>
+							</div>
+						</div>
+
+						<div class="queue-table-head" aria-hidden="true">
 							<span>Title</span>
-							<input type="text" name="title" placeholder="Event title" required />
-						</label>
-						<label class="field-row">
+							<span>Type</span>
+							<span>Status</span>
 							<span>Date</span>
-							<input type="date" name="publishDate" />
-						</label>
-						<label class="field-row field-row-wide">
-							<span>Body</span>
-							<textarea name="body" rows="3" placeholder="sample"></textarea>
-						</label>
-					</form>
+							<span>Actions</span>
+						</div>
+
+						<div class="queue-list" data-queue-list></div>
+					</aside>
 				</div>
 			</section>
 
-			<section class="section-panel section-panel-resources" data-section-panel="Resources">
+			<section class="panel preview-panel" id="preview" data-preview-panel>
 				<div class="section-panel-head">
 					<div>
-						<p class="panel-kicker">Resources</p>
-						<h2>Reference content</h2>
+						<p class="panel-kicker">Preview</p>
+						<h2>What is currently visible</h2>
+						<p>Compact previews show the current announcement and activity streams before they are surfaced publicly.</p>
 					</div>
 				</div>
-				<div class="section-panel-body">
-					<form class="section-form" data-section-form="Resources">
-						<input type="hidden" name="section" value="Resources" />
-						<label class="field-row">
-							<span>Title</span>
-							<input type="text" name="title" placeholder="Resource title" required />
-						</label>
-						<label class="field-row">
-							<span>Link</span>
-							<input type="url" name="link" placeholder="sample" />
-						</label>
-						<label class="field-row field-row-wide">
-							<span>Body</span>
-							<textarea name="body" rows="3" placeholder="sample"></textarea>
-						</label>
-					</form>
+
+				<div class="preview-grid">
+					<article class="preview-stream">
+						<div class="preview-stream-head">
+							<h3>Announcements</h3>
+							<span data-preview-count="announcement">0 items</span>
+						</div>
+						<div data-preview-list="announcement"></div>
+					</article>
+
+					<article class="preview-stream">
+						<div class="preview-stream-head">
+							<h3>Activities</h3>
+							<span data-preview-count="event">0 items</span>
+						</div>
+						<div data-preview-list="event"></div>
+					</article>
 				</div>
 			</section>
 
-			<section class="section-panel section-panel-downloads" data-section-panel="Downloads">
+			<section class="panel section-directory" id="sections">
 				<div class="section-panel-head">
 					<div>
-						<p class="panel-kicker">Downloads</p>
-						<h2>Files and forms</h2>
+						<p class="panel-kicker">Sections</p>
+						<h2>Content categories</h2>
+						<p>Jump directly to the section you want to manage. The same controls update the content form above.</p>
 					</div>
 				</div>
-				<div class="section-panel-body">
-					<form class="section-form" data-section-form="Downloads">
-						<input type="hidden" name="section" value="Downloads" />
-						<label class="field-row">
-							<span>Title</span>
-							<input type="text" name="title" placeholder="Download title" required />
-						</label>
-						<label class="field-row">
-							<span>File</span>
-							<input type="text" name="file" placeholder="sample" />
-						</label>
-						<label class="field-row field-row-wide">
-							<span>Body</span>
-							<textarea name="body" rows="3" placeholder="sample"></textarea>
-						</label>
-					</form>
+
+				<div class="section-list" role="list" aria-label="Content categories">
+					<button type="button" class="section-row" data-section="News">
+						<span>News</span>
+						<strong>Announcements and bulletin-style updates</strong>
+						<em>Switch the editor to the News section</em>
+					</button>
+					<button type="button" class="section-row" data-section="Activities">
+						<span>Activities</span>
+						<strong>Talks, forums, and event listings</strong>
+						<em>Switch the editor to the Activities section</em>
+					</button>
+					<button type="button" class="section-row" data-section="Resources">
+						<span>Resources</span>
+						<strong>Reference material and helpful links</strong>
+						<em>Switch the editor to the Resources section</em>
+					</button>
+					<button type="button" class="section-row" data-section="Downloads">
+						<span>Downloads</span>
+						<strong>Forms, files, and member materials</strong>
+						<em>Switch the editor to the Downloads section</em>
+					</button>
+					<button type="button" class="section-row" data-section="About SPP">
+						<span>About SPP</span>
+						<strong>Institutional background and society information</strong>
+						<em>Switch the editor to the About SPP section</em>
+					</button>
 				</div>
 			</section>
 
-			<section class="section-panel section-panel-about" data-section-panel="About SPP">
-				<div class="section-panel-head">
-					<div>
-						<p class="panel-kicker">About SPP</p>
-						<h2>Society information</h2>
-					</div>
-				</div>
-				<div class="section-panel-body">
-					<form class="section-form" data-section-form="About SPP">
-						<input type="hidden" name="section" value="About SPP" />
-						<label class="field-row">
-							<span>Title</span>
-							<input type="text" name="title" placeholder="About page title" required />
-						</label>
-						<label class="field-row field-row-wide">
-							<span>Body</span>
-							<textarea name="body" rows="3" placeholder="sample"></textarea>
-						</label>
-					</form>
-				</div>
-			</section>
+			<footer class="site-footer">
+				<p>SPP admin content workspace. Data is stored locally in this browser through the existing prototype flow.</p>
+			</footer>
 		</main>
-
-		<section class="panel summary-strip">
-			<div class="summary-item">
-				<span>Scheduled</span>
-				<strong data-metric="scheduled-count">0</strong>
-			</div>
-			<div class="summary-item">
-				<span>Published</span>
-				<strong data-metric="published-count">0</strong>
-			</div>
-		</section>
 	</div>
 </body>
 </html>
