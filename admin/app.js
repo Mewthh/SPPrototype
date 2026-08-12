@@ -426,22 +426,35 @@ composeForm?.addEventListener('reset', () => {
 
 queueList?.addEventListener('click', handleQueueAction);
 
-// Mobile Sidebar Menu Toggling
+// Sidebar Menu Toggling (All Screens as Overlay Drawer)
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const menuClose = document.querySelector('[data-menu-close]');
 const sidebar = document.querySelector('[data-sidebar]');
 const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
 
-menuToggle?.addEventListener('click', () => {
+function openSidebar() {
   sidebar?.classList.add('is-open');
-});
+}
 
-menuClose?.addEventListener('click', () => {
+function closeSidebar() {
   sidebar?.classList.remove('is-open');
+}
+
+menuToggle?.addEventListener('click', openSidebar);
+menuClose?.addEventListener('click', closeSidebar);
+
+// Close the drawer menu when a link is clicked on any screen size
+navLinks.forEach((link) => {
+  link.addEventListener('click', closeSidebar);
 });
 
-navLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    sidebar?.classList.remove('is-open');
+function updateActiveNavLink() {
+  const currentHash = window.location.hash || '#dashboard';
+  navLinks.forEach((link) => {
+    const isActive = link.getAttribute('href') === currentHash;
+    link.classList.toggle('active', isActive);
   });
-});
+}
+window.addEventListener('hashchange', updateActiveNavLink);
+window.addEventListener('load', updateActiveNavLink);
+updateActiveNavLink();
