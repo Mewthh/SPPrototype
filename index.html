@@ -26,15 +26,23 @@
                 <nav class="desktop-nav" aria-label="Primary navigation">
                     <a href="#news">News</a>
                     <a href="#activities">Activities</a>
-                    <a href="#resources">Resources</a>
+                    <div class="nav-dropdown">
+                        <a href="#resources" class="nav-dropdown-toggle">Resources <span class="dropdown-chevron">&#x25BE;</span></a>
+                        <div class="nav-dropdown-panel" aria-label="Resources submenu">
+                            <a href="#membership-faq">Membership FAQ</a>
+                            <a href="#proceedings">Proceedings of the SPP</a>
+                            <a href="#videos-webinars">Videos and Webinars</a>
+                            <a href="#pisika-journal">Pisika Journal</a>
+                        </div>
+                    </div>
                     <a href="#downloads">Downloads</a>
                     <a href="#about">About SPP</a>
                     <details class="year-menu">
                         <summary aria-label="Open conference year choices">⋯</summary>
                         <div class="year-menu-panel" aria-label="Conference year choices">
-                            <button type="button" data-year="2024">SPP2024</button>
-                            <button type="button" data-year="2025">SPP2025</button>
-                            <button type="button" data-year="2026">SPP2026</button>
+                            <a href="spp2024.html" id="year-btn-2024" class="year-menu-link">SPP2024</a>
+                            <a href="spp2025.html" id="year-btn-2025" class="year-menu-link">SPP2025</a>
+                            <a href="spp2026.html" id="year-btn-2026" class="year-menu-link">SPP2026</a>
                         </div>
                     </details>
                 </nav>
@@ -63,13 +71,21 @@
                     <nav class="mobile-nav-panel" aria-label="Mobile navigation">
                         <a href="#news">News</a>
                         <a href="#activities">Activities</a>
-                        <a href="#resources">Resources</a>
+                        <details class="mobile-sub-menu">
+                            <summary>Resources <span class="dropdown-chevron">&#x25BE;</span></summary>
+                            <div class="mobile-sub-menu-panel">
+                                <a href="#membership-faq">Membership FAQ</a>
+                                <a href="#proceedings">Proceedings of the SPP</a>
+                                <a href="#videos-webinars">Videos and Webinars</a>
+                                <a href="#pisika-journal">Pisika Journal</a>
+                            </div>
+                        </details>
                         <a href="#downloads">Downloads</a>
                         <a href="#about">About SPP</a>
                         <div class="mobile-nav-years" aria-label="Conference year choices">
-                            <button type="button" data-year="2024">SPP2024</button>
-                            <button type="button" data-year="2025">SPP2025</button>
-                            <button type="button" data-year="2026">SPP2026</button>
+                            <a href="spp2024.html" id="mob-year-btn-2024" class="year-menu-link">SPP2024</a>
+                            <a href="spp2025.html" id="mob-year-btn-2025" class="year-menu-link">SPP2025</a>
+                            <a href="spp2026.html" id="mob-year-btn-2026" class="year-menu-link">SPP2026</a>
                         </div>
                     </nav>
                 </details>
