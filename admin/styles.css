@@ -1,47 +1,31 @@
-/* ==========================================================================
-   SPP Admin Dashboard - Visual Redesign
-   A modern visual extension of the SPP editorial user-facing website.
-   ========================================================================== */
-
 :root {
   color-scheme: light;
-  
-  /* User-facing visual identity theme values */
-  --bg-page: #f5f3ee;         /* Warm ivory/beige surface */
-  --surface: #ffffff;         /* Card / form surfaces */
-  --surface-soft: #f8f6f2;    /* Soft backdrop fields */
-  --surface-strong: #efebe4;  /* Dividers and borders */
+  --bg-page: #f5f3ee;
+  --surface: #ffffff;
+  --surface-soft: #f8f6f2;
+  --surface-strong: #efebe4;
   --card-bg: #ffffff;
-  
   --header-bg: rgba(245, 243, 238, 0.9);
   --footer-bg: #111214;
-  
-  --text: #1d2430;            /* Deep charcoal text */
-  --muted: #687385;           /* Slate grey */
-  --accent: #303a46;          /* Charcoal accent */
-  --accent-strong: #121826;   /* High contrast brand accent */
+  --text: #1d2430;
+  --muted: #687385;
+  --accent: #303a46;
+  --accent-strong: #121826;
   --accent-soft: rgba(48, 58, 70, 0.08);
-  
-  /* Status indicators (modern editorial tones) */
   --warn: #c27d00;
   --danger: #b93c2a;
   --success: #1b7a4c;
-  
   --border: rgba(29, 36, 48, 0.12);
   --shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
-  
-  /* Redesign curves & spacing */
   --radius-xl: 20px;
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-sm: 10px;
   --radius-pill: 999px;
-  
   --max-width: 1200px;
-  --transition: all 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: 180ms ease;
 }
 
-/* Dark Mode Overrides (matching user website) */
 html[data-theme="dark"] {
   color-scheme: dark;
   --bg-page: #09090b;
@@ -58,19 +42,20 @@ html[data-theme="dark"] {
   --accent-soft: rgba(245, 245, 245, 0.08);
   --border: rgba(255, 255, 255, 0.08);
   --shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
-  
   --warn: #fbbf24;
   --danger: #fca5a5;
   --success: #4ade80;
 }
 
-/* Fix active chips and selected tabs readability in dark mode */
 html[data-theme="dark"] .control-tab.active,
 html[data-theme="dark"] .filter-tab.active,
+html[data-theme="dark"] .conference-year-btn.active,
 html[data-theme="dark"] .section-row.active,
 html[data-theme="dark"] .button-primary,
-html[data-theme="dark"] .item-action.primary {
+html[data-theme="dark"] .item-action.primary,
+html[data-theme="dark"] .brand-mark {
   color: var(--bg-page);
+  background: var(--accent-strong);
 }
 
 html[data-theme="dark"] .section-row.active span {
@@ -79,7 +64,7 @@ html[data-theme="dark"] .section-row.active span {
 
 html[data-theme="dark"] .section-row.active strong,
 html[data-theme="dark"] .section-row.active em {
-  color: rgba(9, 9, 11, 0.6);
+  color: rgba(9, 9, 11, 0.7);
 }
 
 * {
@@ -99,13 +84,12 @@ body {
   line-height: 1.6;
 }
 
-/* Top background decoration */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 300px);
+  background: transparent;
   z-index: 0;
 }
 
@@ -121,7 +105,6 @@ a {
   text-decoration: none;
 }
 
-/* Skip link */
 .skip-link {
   position: absolute;
   left: 16px;
@@ -140,17 +123,12 @@ a {
   top: 16px;
 }
 
-/* ==========================================================================
-   Layout Shell
-   ========================================================================== */
-
 .dashboard-shell {
   display: block;
   min-height: 100vh;
   position: relative;
 }
 
-/* Mobile/Desktop topbar (Sticky, Glassmorphic) */
 .mobile-topbar {
   display: flex;
   background: var(--header-bg);
@@ -198,7 +176,6 @@ a {
   letter-spacing: -0.02em;
 }
 
-/* Sidebar redone (Sticky, High-End layout) */
 .dashboard-sidebar {
   background: var(--surface);
   border-right: 1px solid var(--border);
@@ -243,7 +220,6 @@ a {
   color: var(--text);
 }
 
-/* Brand logo component block matching User Web brand */
 .brand-block {
   display: flex;
   flex-direction: column;
@@ -297,7 +273,6 @@ a {
   line-height: 1.6;
 }
 
-/* Sidebar Vertical Navigation */
 .dashboard-nav {
   display: flex;
   flex-direction: column;
@@ -327,7 +302,6 @@ a {
   color: var(--accent-strong);
 }
 
-/* Sidebar Footer buttons */
 .sidebar-footer {
   margin-top: auto;
   display: flex;
@@ -384,10 +358,6 @@ html[data-theme="dark"] .theme-icon-sun {
   display: block;
 }
 
-/* ==========================================================================
-   Main Content Layout
-   ========================================================================= */
-
 .dashboard-main {
   display: grid;
   gap: 36px;
@@ -408,10 +378,6 @@ html[data-theme="dark"] .theme-icon-sun {
   position: relative;
   transition: var(--transition);
 }
-
-/* ==========================================================================
-   Overview / Statistics Section
-   ========================================================================== */
 
 .dashboard-overview {
   display: grid;
@@ -446,7 +412,6 @@ html[data-theme="dark"] .theme-icon-sun {
   margin-top: 8px;
 }
 
-/* Metric Cards: Styling matching .stat-card of user side */
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -485,10 +450,6 @@ html[data-theme="dark"] .theme-icon-sun {
   color: var(--accent-strong);
 }
 
-/* ==========================================================================
-   Workspace Section (Form & Queue)
-   ========================================================================== */
-
 .section-panel-head {
   display: flex;
   align-items: flex-end;
@@ -517,7 +478,6 @@ html[data-theme="dark"] .theme-icon-sun {
   align-items: start;
 }
 
-/* Editor form column */
 .compose-column {
   position: sticky;
   top: 96px;
@@ -540,7 +500,6 @@ html[data-theme="dark"] .theme-icon-sun {
   gap: 10px;
 }
 
-/* Styled Pills / Tabs */
 .control-tab,
 .filter-tab {
   min-height: 38px;
@@ -571,7 +530,6 @@ html[data-theme="dark"] .theme-icon-sun {
   border-color: transparent;
 }
 
-/* Inputs & Form layout */
 .field-row {
   display: flex;
   flex-direction: column;
@@ -603,7 +561,6 @@ html[data-theme="dark"] .theme-icon-sun {
   cursor: pointer;
 }
 
-/* Clean Input styles with high-end feel */
 .compose-form input[type="text"],
 .compose-form input[type="date"],
 .compose-form textarea,
@@ -641,7 +598,6 @@ html[data-theme="dark"] .theme-icon-sun {
   padding-top: 10px;
 }
 
-/* Core Buttons */
 .button,
 .item-action {
   display: inline-flex;
@@ -712,23 +668,43 @@ html[data-theme="dark"] .theme-icon-sun {
   border-color: var(--danger);
 }
 
-/* ==========================================================================
-   Content Queue listing
-   ========================================================================== */
+.editor-panel {
+  display: grid;
+  gap: 24px;
+}
 
-.queue-column {
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background: var(--surface-soft);
+.panel-view {
+  display: grid;
+  gap: 20px;
+  animation: fadeIn 180ms ease forwards;
+}
+
+.panel-view.is-hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.posts-view-wrapper {
   display: grid;
   gap: 20px;
 }
 
-.queue-head {
-  border-bottom: none;
-  padding-bottom: 0;
-  margin-bottom: 0;
+.queue-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .queue-filters {
@@ -739,9 +715,9 @@ html[data-theme="dark"] .theme-icon-sun {
 
 .queue-table-head {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) 85px 95px 105px 120px;
+  grid-template-columns: minmax(0, 2.5fr) 110px 130px 190px;
   gap: 16px;
-  padding: 0 16px 12px;
+  padding: 0 20px 12px;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
@@ -757,10 +733,10 @@ html[data-theme="dark"] .theme-icon-sun {
 
 .queue-row {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) 85px 95px 105px 120px;
+  grid-template-columns: minmax(0, 2.5fr) 110px 130px 190px;
   gap: 16px;
   align-items: center;
-  padding: 16px 20px;
+  padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--surface);
@@ -797,21 +773,6 @@ html[data-theme="dark"] .theme-icon-sun {
   overflow: hidden;
 }
 
-.queue-title em {
-  width: fit-content;
-  font-style: normal;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-radius: var(--radius-sm);
-  padding: 3px 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
-}
-
-.queue-type,
 .post-tag {
   width: fit-content;
   padding: 4px 10px;
@@ -821,15 +782,6 @@ html[data-theme="dark"] .theme-icon-sun {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-align: center;
-}
-
-.queue-type {
-  background: var(--surface-soft);
-  color: var(--accent);
-  border: 1px solid var(--border);
-}
-
-.post-tag {
   border: 1px solid transparent;
 }
 
@@ -851,6 +803,12 @@ html[data-theme="dark"] .theme-icon-sun {
   border-color: rgba(27, 122, 76, 0.2);
 }
 
+.post-tag[data-status="archived"] {
+  background: rgba(107, 114, 128, 0.1);
+  color: var(--muted);
+  border-color: rgba(107, 114, 128, 0.25);
+}
+
 .queue-cell.queue-actions {
   flex-direction: row;
   flex-wrap: wrap;
@@ -859,21 +817,35 @@ html[data-theme="dark"] .theme-icon-sun {
 }
 
 .queue-cell.queue-actions .item-action {
-  min-height: 32px;
+  min-height: 34px;
   padding: 0 12px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   border-radius: var(--radius-sm);
 }
 
 .queue-cell.queue-date,
-.queue-cell.queue-status,
-.queue-cell.queue-type {
+.queue-cell.queue-status {
   font-size: 0.88rem;
+}
+
+.queue-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 0 8px;
+}
+
+.pagination-info {
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .empty-state {
   text-align: center;
-  padding: 40px 20px;
+  padding: 44px 20px;
   color: var(--muted);
   font-size: 0.95rem;
   background: var(--surface);
@@ -881,171 +853,195 @@ html[data-theme="dark"] .theme-icon-sun {
   border: 1px dashed var(--border);
 }
 
-/* ==========================================================================
-   Live Previews Section (Styled like user-side cards)
-   ========================================================================== */
-
-.preview-grid {
+.conference-panel {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  gap: 28px;
 }
 
-.preview-stream {
-  padding: 28px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
-  background: var(--surface-soft);
-  display: grid;
-  gap: 20px;
-  align-content: start;
-}
-
-.preview-stream-head {
+.conference-toolbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 12px;
-}
-
-.preview-stream-head h3 {
-  font-size: 1.25rem;
-  margin: 0;
-}
-
-.preview-stream-head span {
-  color: var(--muted);
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-/* Previews rendered exactly like .content-card / .facebook-post on user side */
-.preview-item {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 24px;
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  transition: var(--transition);
-}
-
-.preview-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
-}
-
-.preview-item-head {
-  display: flex;
-  align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--radius-lg);
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
 }
 
-.preview-item-head strong {
-  font-size: 1.08rem;
-  color: var(--accent-strong);
-  line-height: 1.35;
-}
-
-.preview-item-meta {
+.conference-years-group {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 0.82rem;
-  color: var(--muted);
-  border-top: 1px solid var(--surface-strong);
-  padding-top: 10px;
+  gap: 10px;
 }
 
-.preview-item-meta span:first-child {
+.conference-years-label {
+  font-size: 0.82rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-}
-
-.preview-item p {
-  margin: 0;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  margin-right: 4px;
 }
 
-/* ==========================================================================
-   Sections Directory
-   ========================================================================== */
-
-.section-directory .section-list {
-  display: grid;
-  gap: 12px;
-}
-
-.section-row {
-  width: 100%;
-  padding: 20px 24px;
-  border-radius: var(--radius-md);
-  background: var(--surface-soft);
-  display: grid;
-  grid-template-columns: 180px 1fr auto;
-  gap: 24px;
-  text-align: left;
-  cursor: pointer;
-  align-items: center;
+.conference-year-btn {
+  min-height: 40px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.9rem;
+  background: var(--surface);
+  color: var(--text);
   border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   transition: var(--transition);
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.section-row:hover {
-  transform: translateY(-2px);
+.conference-year-btn:hover,
+.conference-year-btn:focus-visible {
   border-color: var(--accent);
-  box-shadow: var(--shadow);
+  background: var(--surface-strong);
+  color: var(--text);
+  transform: translateY(-1px);
+  outline: none;
 }
 
-.section-row span {
-  color: var(--accent-strong);
-  font-size: 1.05rem;
-  font-weight: 700;
-}
-
-.section-row strong {
-  color: var(--muted);
-  font-weight: normal;
-  font-size: 0.94rem;
-}
-
-.section-row em {
-  font-style: normal;
-  font-size: 0.8rem;
-  color: var(--muted);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-}
-
-.section-row.active {
+.conference-year-btn.active {
   background: var(--accent-strong);
   color: #fff;
   border-color: transparent;
 }
 
-.section-row.active span {
-  color: #fff;
+.conference-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
 }
 
-.section-row.active strong,
-.section-row.active em {
-  color: rgba(255, 255, 255, 0.7);
+.conference-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: var(--transition);
+  position: relative;
 }
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
+.conference-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.conference-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.conference-card-head h3 {
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--accent-strong);
+}
+
+.conference-badge {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.conference-badge.active {
+  background: rgba(27, 122, 76, 0.08);
+  color: var(--success);
+  border-color: rgba(27, 122, 76, 0.2);
+}
+
+.conference-badge.upcoming {
+  background: rgba(194, 125, 0, 0.08);
+  color: var(--warn);
+  border-color: rgba(194, 125, 0, 0.2);
+}
+
+.conference-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.conference-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.conference-card-meta strong {
+  color: var(--accent-strong);
+}
+
+.conference-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.conference-card-actions .button,
+.conference-card-actions a.button {
+  flex: 1;
+  min-height: 38px;
+  padding: 0 12px;
+  font-size: 0.84rem;
+}
+
+.editor-status-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent-strong);
+}
+
+.editor-status-banner.is-editing {
+  background: rgba(194, 125, 0, 0.08);
+  border-color: rgba(194, 125, 0, 0.3);
+  color: var(--warn);
+}
+
+.queue-row.is-editing {
+  border-color: var(--accent-strong);
+  background: var(--surface-strong);
+  box-shadow: var(--shadow);
+}
 
 .site-footer {
   padding: 24px 0 0;
@@ -1054,10 +1050,6 @@ html[data-theme="dark"] .theme-icon-sun {
   border-top: 1px solid var(--border);
   margin-top: 24px;
 }
-
-/* ==========================================================================
-   Responsive Breakpoints
-   ========================================================================== */
 
 @media (max-width: 1180px) {
   .dashboard-main {
@@ -1070,17 +1062,11 @@ html[data-theme="dark"] .theme-icon-sun {
 }
 
 @media (max-width: 1024px) {
-  .dashboard-overview,
-  .workspace-grid,
-  .preview-grid {
+  .dashboard-overview {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  
-  .compose-column {
-    position: static;
-  }
-  
+
   .metric-grid {
     gap: 16px;
   }
@@ -1101,11 +1087,6 @@ html[data-theme="dark"] .theme-icon-sun {
     margin-top: 8px;
     border-top: 1px dashed var(--border);
     padding-top: 12px;
-  }
-
-  .section-row {
-    grid-template-columns: 1fr;
-    gap: 10px;
   }
 
   .section-panel-head {
